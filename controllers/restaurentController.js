@@ -91,8 +91,6 @@ const getRestaurentMenu = asyncHandler(async (req, res) => {
         const { id } = req.params;
         console.log(id)
         const restaurant = await Restaurant.findById(id);
-        console.log('iam printing restaurent')
-        console.log(restaurant)
         if (!restaurant) {
           return res.status(404).json({ error: 'Restaurant not found' });
         }

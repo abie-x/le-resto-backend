@@ -14,14 +14,14 @@ import orderRoutes from './routes/orderRoutes.js'
 import tipRoutes from './routes/tipRoutes.js'
 import stripePackage from 'stripe';
 
-const stripe = stripePackage('sk_test_51NIXdrSJv6spOPlPc1fY5BLjYnCcz4PJ8kWfBStgtzTqsbgjsyjalttHP2MaYUQm0OH83gDEuQzNF2TpmiuFBno800uqeeZGTL');
+const stripe = stripePackage('sk_test_51O1MCkKoYFAYewxjwG6lWJXkhL1tlkHctvYBtwQpOO4x8xtNZww5xl1ydaOKvXLFKXT2ZVnjOHvMQeRhIoVMkIdg00jSK5BAP4');
 
 dotenv.config()
 
 connectDB()
 
-// sk_test_51NIXdrSJv6spOPlPc1fY5BLjYnCcz4PJ8kWfBStgtzTqsbgjsyjalttHP2MaYUQm0OH83gDEuQzNF2TpmiuFBno800uqeeZGTL
-// Pasta = > price_1NJJWzSJv6spOPlPjEtcYLEn
+// sk_test_51O1MCkKoYFAYewxjwG6lWJXkhL1tlkHctvYBtwQpOO4x8xtNZww5xl1ydaOKvXLFKXT2ZVnjOHvMQeRhIoVMkIdg00jSK5BAP4
+// chicken tikka = > price_1OgJS1KoYFAYewxjuRAq2JEm
 
 //initializing the express app
 const app = express()  
@@ -51,8 +51,8 @@ app.get('/api/payment', asyncHandler(async (req, res) => {
           return res.status(404).json({ error: 'Restaurant not found' });
         }
     
-        const orders = await Order.find({ restaurant_id: restaurantId, table_number: tableNumber, status: 'Delivered' });
-        // console.log('helloo')
+        const orders = await Order.find({ restaurant_id: restaurantId, table_number: tableNumber, status: 'Pending' });
+        console.log('helloo')
         console.log(orders)
         // Create an object to store the menu items and their quantities
         const menuItemsMap = new Map();
@@ -84,14 +84,14 @@ app.get('/api/payment', asyncHandler(async (req, res) => {
         const menuItems = Array.from(menuItemsMap.values());
 
         console.log('hi')
-        console.log(menuItems)
+        // console.log(menuItems)
     
         const tempid = "price_1NJJWzSJv6spOPlPjEtcYLEn"
     
         const menuItemsNew = menuItems.map(item => {
             return { price: item.price, quantity: item.quantity };
         });
-
+        console.log('printing the updated menu items')
         console.log(menuItemsNew)
     
         const session = await stripe.checkout.sessions.create({

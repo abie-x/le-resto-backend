@@ -20,16 +20,16 @@ connectDB()
 const importData = async () => {
   try {
     await Restaurant.deleteMany()
-    await Order.deleteMany()
-    await User.deleteMany()
-    await Cook.deleteMany()
-    await Tip.deleteMany()
+    // await Order.deleteMany()
+    // await User.deleteMany()
+    // await Cook.deleteMany()
+    // await Tip.deleteMany()
 
      await Restaurant.insertMany(restaurants)
-     await Order.insertMany(orders)
-     await User.insertMany(users)
-     await Cook.insertMany(cooks)
-     await Tip.insertMany(tips)
+    //  await Order.insertMany(orders)
+    //  await User.insertMany(users)
+    //  await Cook.insertMany(cooks)
+    //  await Tip.insertMany(tips)
 
 
     console.log('Data Imported!'.green.inverse)

@@ -8,51 +8,13 @@ const ObjectId = mongoose.Types.ObjectId
 
 const placeOrder = asyncHandler(async (req, res) => {
   const { customer_name, restaurant_id, menu_items, total_price, table_number } = req.body;
+  console.log(customer_name)
   // Retrieve the restaurant to check if the menu items exist and update the remaining quantity
   // console.log('printing the menu items')
   // console.log(menu_items)
-  const restaurant = await Restaurant.findById(restaurant_id);
-  if (!restaurant) {
-    return res.status(404).json({ message: 'Restaurant not found' });
-  }
-
-  // Check if the table is already taken in current orders
-  // const currentOrders = await Order.find({ status: { $ne: 'Completed' } });
-  // console.log(currentOrders)
+  // console.log('printing the body object')
+  // console.log(req.body)
   
-  // for (const order of currentOrders) {
-  //   console.log(order.table_number)
-  //   if (order.table_number === table_number) {
-  //     return res.status(400).json({ message: `Table ${table_number} is already taken` });
-  //   }
-  // }
-
-  // Create a new order with the given data
-  const order = new Order({
-    customer_name,
-    restaurant_id,
-    menu_items,
-    total_price,
-    table_number
-  });
-
-  // console.log('iam printing the orders')
-  // console.log(order)
-
-  // Update the remaining quantity of each menu item
-  for (const item of menu_items) {
-    const menuItem = restaurant.menu_items.id(item.item_id);
-    if (!menuItem) {
-      return res.status(404).json({ message: 'Menu item not found' });
-    }
-    const remaining = menuItem.remaining - item.quantity;
-    if (remaining < 0) {
-      return res.status(400).json({ message: `${menuItem.item_name} is out of stock` });
-    }
-    menuItem.remaining = remaining;
-  }
-
-  await restaurant.save();
   // await order.save();
 
   // const cook = await Cook.findOneAndUpdate(
@@ -79,15 +41,60 @@ const placeOrder = asyncHandler(async (req, res) => {
   //   assignedCook.orders.push(order._id);
   //   await assignedCook.save();
   // }
-  
-  console.log(menu_items)
+
 
   try {
     // Save the updated restaurant and the new order to the database
     // await restaurant.save();
-    await order.save();
+
+    const restaurant = await Restaurant.findById(restaurant_id);
+    if (!restaurant) {
+      return res.status(404).json({ message: 'Restaurant not found' });
+    }
+
+  // Check if the table is already taken in current orders
+  // const currentOrders = await Order.find({ status: { $ne: 'Completed' } });
+  // console.log(currentOrders)
+  
+  // for (const order of currentOrders) {
+  //   console.log(order.table_number)
+  //   if (order.table_number === table_number) {
+  //     return res.status(400).json({ message: `Table ${table_number} is already taken` });
+  //   }
+  // }
+
+  // Create a new order with the given data
+  const order = new Order({
+    customer_name,
+    restaurant_id,
+    menu_items,
+    total_price,
+    table_number
+  });
+
+
+
+  // console.log('iam printing the orders')
+  // console.log(order)
+
+  // Update the remaining quantity of each menu item
+  for (const item of menu_items) {
+    const menuItem = restaurant.menu_items.id(item.item_id);
+    if (!menuItem) {
+      return res.status(404).json({ message: 'Menu item not found' });
+    }
+    const remaining = menuItem.remaining - item.quantity;
+    if (remaining < 0) {
+      return res.status(400).json({ message: `${menuItem.item_name} is out of stock` });
+    }
+    menuItem.remaining = remaining;
+  }
+
+  await restaurant.save();
+
+  await order.save();
     // await cook.save()
-    res.status(201).send(order);
+  res.status(201).send(order);
   } catch (error) {
     res.status(500).json({ message: 'Error placing order' });
   }
