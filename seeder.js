@@ -19,16 +19,16 @@ connectDB()
 
 const importData = async () => {
   try {
-    await Restaurant.deleteMany()
+    // await Restaurant.deleteMany()
     // await Order.deleteMany()
     // await User.deleteMany()
-    // await Cook.deleteMany()
+    await Cook.deleteMany()
     // await Tip.deleteMany()
 
-     await Restaurant.insertMany(restaurants)
+    //  await Restaurant.insertMany(restaurants)
     //  await Order.insertMany(orders)
     //  await User.insertMany(users)
-    //  await Cook.insertMany(cooks)
+     await Cook.insertMany(cooks)
     //  await Tip.insertMany(tips)
 
 
@@ -44,8 +44,8 @@ const destroyData = async () => {
   try {
     // await Restaurant.deleteMany()
     // await Order.deleteMany()
-    await User.deleteMany()
-    // await Cook.deleteMany()
+    // await User.deleteMany()
+    await Cook.deleteMany()
     // await Tip.deleteMany()
 
     console.log('Data Destroyed!'.red.inverse)

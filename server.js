@@ -91,7 +91,7 @@ app.get('/api/payment', asyncHandler(async (req, res) => {
         const menuItemsNew = menuItems.map(item => {
             return { price: item.price, quantity: item.quantity };
         });
-        console.log('printing the updated menu items')
+    
         console.log(menuItemsNew)
     
         const session = await stripe.checkout.sessions.create({

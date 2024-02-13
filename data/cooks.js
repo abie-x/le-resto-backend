@@ -1,6 +1,8 @@
 const cooks = [
     {
         name: "Emiley",
+        email: "emiley@gmail.com",
+        password: "emiley@123",
         specialty: ["Pasta", "Dosa"],
         experience: 12,
         rating: 4,
@@ -8,6 +10,8 @@ const cooks = [
     },
     {
         name: "John Smith",
+        email: "john@orkut.com",
+        password: "john@123",
         specialty: ["Vegetable Biryani", "Chicken Tikka Masala", "Ravioli", "Eggplant Parmesan", "Lobster Risotto", "Tuna Tartare"],
         experience: 10,
         rating: 4.5,
@@ -16,6 +20,8 @@ const cooks = [
     },
     {
         name: "Samantha Lee",
+        email: "samantha@yahoo.com",
+        password: "samantha@123",
         specialty: ["California Roll", "Shrimp Tempura", "Miso Soup", "Penne Vodka", "Tiramisu"],
         experience: 5,
         rating: 4.2,

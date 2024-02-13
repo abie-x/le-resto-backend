@@ -1,7 +1,16 @@
 import mongoose from "mongoose";
+import bcrypt from 'bcryptjs'
 
 const cookSchema = new mongoose.Schema({
     name: {
+      type: String,
+      required: true
+    },
+    email: {
+      type: String,
+      required: true
+    },
+    password: {
       type: String,
       required: true
     },
@@ -29,8 +38,31 @@ const cookSchema = new mongoose.Schema({
       type: Date,
       default: Date.now
     }
-  });
-  
-  const Cook = mongoose.model('Cook', cookSchema);
+});
 
-  export default Cook
+cookSchema.methods.matchPassword = async function (enteredPassword) {
+  if(this.password === enteredPassword) {
+    return true
+  } else {
+    return false
+  }
+}
+
+// cookSchema.pre('create', async function (next) {
+//   if (!this.isModified('password')) {
+//     return next();
+//   }
+  
+//   try {
+//     const salt = await bcrypt.genSalt(10);
+//     const hashedPassword = await bcrypt.hash(this.get('password'), salt);
+//     this.set('password', hashedPassword);
+//     return next();
+//   } catch (error) {
+//     return next(error);
+//   }
+// });
+  
+const Cook = mongoose.model('Cook', cookSchema);
+
+export default Cook
