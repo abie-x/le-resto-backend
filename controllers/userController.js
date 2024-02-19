@@ -14,7 +14,7 @@ const authUser = asyncHandler(async (req, res) => {
     if(user && await user.matchPassword(password)) {
         res.status(200).json({
             _id: user._id,
-            userName: user.userName,
+            userName: user.username,
             email: user.email,
             // phone_number: user.phone_number,
             isAdmin: user.isAdmin,

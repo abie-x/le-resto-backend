@@ -8,7 +8,15 @@ const ObjectId = mongoose.Types.ObjectId
 
 const placeOrder = asyncHandler(async (req, res) => {
   const { customer_name, restaurant_id, menu_items, total_price, table_number } = req.body;
+  console.log(`placing the order`)
   console.log(customer_name)
+  for (let i = 0; i < menu_items.length; i++) {
+    if (menu_items[i].quantity === 0) {
+        menu_items.splice(i, 1);
+        i--; // Decrement i to account for the removed item
+    }
+}
+
   // Retrieve the restaurant to check if the menu items exist and update the remaining quantity
   // console.log('printing the menu items')
   // console.log(menu_items)
@@ -84,6 +92,7 @@ const placeOrder = asyncHandler(async (req, res) => {
       return res.status(404).json({ message: 'Menu item not found' });
     }
     const remaining = menuItem.remaining - item.quantity;
+    console.log('remaining qty is ', remaining)
     if (remaining < 0) {
       return res.status(400).json({ message: `${menuItem.item_name} is out of stock` });
     }
@@ -91,6 +100,8 @@ const placeOrder = asyncHandler(async (req, res) => {
   }
 
   await restaurant.save();
+
+  console.log(order)
 
   await order.save();
     // await cook.save()
@@ -200,7 +211,7 @@ const updateOrder = asyncHandler(async (req, res) => {
 const updateOrderStatus = asyncHandler(async (req, res) => {
   try {
     const orderId = req.params.id;
-    const  status  = 'Delivered';
+    const  {status} = req.body
 
     //get the order
     const order = await Order.findById(orderId)
@@ -228,7 +239,7 @@ const getCookOrders = asyncHandler(async (req, res) => {
   console.log(cookId)
   const orders = await Order.find({
     cook: cookId,
-    status: 'Pending'
+    status: 'Confirmed' || 'Completed'
   })
   res.json(orders);
 });
@@ -252,7 +263,11 @@ const getOrderDetails = async (req, res) => {
 
  const getAllOrders = async (req, res) => {
   try {
-    const orders = await Order.find({ status: 'Pending' })
+    const orders = await Order.find({ $or: [
+      {status: 'Pending'},
+      {status: 'Confirmed'},
+      {status: 'Prepared'}
+  ],})
     if (!orders) {
       return res.status(404).json({ message: 'Orders not found' });
     }

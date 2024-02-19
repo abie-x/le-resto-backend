@@ -51,7 +51,7 @@ app.get('/api/payment', asyncHandler(async (req, res) => {
           return res.status(404).json({ error: 'Restaurant not found' });
         }
     
-        const orders = await Order.find({ restaurant_id: restaurantId, table_number: tableNumber, status: 'Pending' });
+        const orders = await Order.find({ restaurant_id: restaurantId, table_number: tableNumber, status: 'Delivered' });
         console.log('helloo')
         console.log(orders)
         // Create an object to store the menu items and their quantities
@@ -121,7 +121,7 @@ app.get('/api/payment', asyncHandler(async (req, res) => {
 
 console.log(`the port is ${process.env.PORT}`)
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 console.log(port)
 
 app.listen(port, console.log("app is running.."))

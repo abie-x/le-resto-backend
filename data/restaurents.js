@@ -1122,6 +1122,22 @@ const restaurants = [
         updated_at: "2022-03-02T12:00:00.000Z"
       },
       {
+        item_name: "Chicken chilly",
+        item_description: "ghhhgjjjjjjjjvghhhhhhhhhhhhhhhhjj",
+        item_image: "https://pupswithchopsticks.com/wp-content/uploads/chilli-chicken-thumbnail-500x500.jpg",
+        item_price: 299,
+        item_stripe_price: "price_1OlPVHKoYFAYewxjuBjNG0Px",
+        vegetarian: false,
+        spicy: true,
+        allergens: ["Shellfish", "Dairy"],
+        remaining: 10,
+        calorie: 250,
+        cheffSpecial: true,
+        category: "starters",
+        created_at: "2022-03-02T12:00:00.000Z",
+        updated_at: "2022-03-02T12:00:00.000Z"
+      },
+      {
         item_name: "aloo tikki",
         item_description: "Creamy risotto with lobster meat",
         item_image: "https://www.indianveggiedelight.com/wp-content/uploads/2023/07/aloo-tikki-featured.jpg",
@@ -1197,7 +1213,86 @@ const restaurants = [
         created_at: "2022-03-03T15:30:00.000Z",
         updated_at: "2022-03-03T15:30:00.000Z"
       },
-      , 
+      {
+        item_name: "Samosa",
+        item_description: "Classic Italian dessert made with layers of espresso-soaked ladyfingers and mascarpone cheese.",
+        item_image: "https://www.cubesnjuliennes.com/wp-content/uploads/2020/08/Best-Indian-Punjabi-Samosa-Recipe.jpg",
+        item_price: 99,
+        item_stripe_price: "price_1OjxaAKoYFAYewxjuRikkUnG",
+        vegetarian: true,
+        spicy: false,
+        allergens: ["Dairy"],
+        remaining: 15,
+        calorie: 130,
+        cheffSpecial: false,
+        category: "starters",
+        created_at: "2022-03-03T15:30:00.000Z",
+        updated_at: "2022-03-03T15:30:00.000Z"
+      },
+      {
+        item_name: "Onion Bhaji",
+        item_description: "Crispy fritters made from thinly sliced onions, coated in a seasoned chickpea flour batter, and deep-fried to perfection. Served with tangy tamarind chutney for a delightful appetizer.",
+        item_image: "https://cupfulofkale.com/wp-content/uploads/2020/04/Vegan-Onion-Bhajis-with-Coriander-Dip-720x720.jpg",
+        item_price: 99,
+        item_stripe_price: "price_1OjxhhKoYFAYewxjNAzRpQ6x",
+        vegetarian: true,
+        spicy: false,
+        allergens: ["Dairy"],
+        remaining: 15,
+        calorie: 130,
+        cheffSpecial: false,
+        category: "starters",
+        created_at: "2022-03-03T15:30:00.000Z",
+        updated_at: "2022-03-03T15:30:00.000Z"
+      },
+      {
+        item_name: "Spring Rolls",
+        item_description: "Crispy spring rolls stuffed with a mix of finely chopped vegetables, seasoned with Asian spices, and served with sweet chili sauce.",
+        item_image: "https://redhousespice.com/wp-content/uploads/2021/12/whole-spring-rolls-and-halved-ones-scaled.jpg",
+        item_price: 199,
+        item_stripe_price: "price_1OjxnFKoYFAYewxjwL2d0HJB",
+        vegetarian: true,
+        spicy: false,
+        allergens: ["Dairy"],
+        remaining: 15,
+        calorie: 130,
+        cheffSpecial: false,
+        category: "starters",
+        created_at: "2022-03-03T15:30:00.000Z",
+        updated_at: "2022-03-03T15:30:00.000Z"
+      },
+      {
+        item_name: "Chilli Paneer",
+        item_description: "Crispy paneer cubes stir-fried with bell peppers, onions, and chili sauce, garnished with spring onions and sesame seeds.",
+        item_image: "https://www.cookwithmanali.com/wp-content/uploads/2016/01/Chilli-Paneer-Restaurant-Style-500x500.jpg",
+        item_price: 199,
+        item_stripe_price: "price_1OjxsAKoYFAYewxjRDtSecq5",
+        vegetarian: true,
+        spicy: false,
+        allergens: ["Dairy"],
+        remaining: 15,
+        calorie: 130,
+        cheffSpecial: false,
+        category: "starters",
+        created_at: "2022-03-03T15:30:00.000Z",
+        updated_at: "2022-03-03T15:30:00.000Z"
+      },
+      {
+        item_name: "Aloo Chaat",
+        item_description: "Cubes of boiled potatoes tossed with tangy tamarind chutney, spicy green chutney, crunchy sev, and aromatic chaat masala.",
+        item_image: "https://www.curiouscuisiniere.com/wp-content/uploads/2021/08/Aloo-Chaat-4.feature.jpg",
+        item_price: 199,
+        item_stripe_price: "price_1OjxvKKoYFAYewxjSDmNryPa",
+        vegetarian: true,
+        spicy: false,
+        allergens: ["Dairy"],
+        remaining: 15,
+        calorie: 130,
+        cheffSpecial: false,
+        category: "starters",
+        created_at: "2022-03-03T15:30:00.000Z",
+        updated_at: "2022-03-03T15:30:00.000Z"
+      },
       {
         item_name: "chicken ghee roast",
         item_description: "Penne pasta tossed in a creamy tomato sauce with a touch of vodka.",
@@ -1612,7 +1707,8 @@ const restaurants = [
         created_at: "2022-03-04T19:00:00.000Z",
         updated_at: "2022-03-04T19:00:00.000Z"
       },
-{ item_name: "maine style lobster rolls",
+      { 
+        item_name: "maine style lobster rolls",
         item_description: "Creamy risotto with lobster meat",
         item_image: "https://www.simplyrecipes.com/thmb/sGLLVhhk2WcGYQHOHPpSKgUEomA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__07__New-England-Lobster-Rolls-LEAD-3b-66e6d533de5643f5b00f40aa9e9c8251.jpg",
         item_price: 35,
@@ -1624,8 +1720,8 @@ const restaurants = [
         calorie: 25,
         cheffSpecial: true,
         category: "starters"
-},
-{
+    },
+    {
         item_name: "garlic prawns",
         item_description: "Penne pasta tossed in a creamy tomato sauce with a touch of vodka.",
         item_image: "https://www.foodandwine.com/thmb/4TZj0NWKrVhE2DNDOJOs8gpudrM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/maine-style-lobster-rolls-ft-RECIPE0718_1-1ef66855601d4248a2499945e08244b7.jpg",
@@ -1640,7 +1736,8 @@ const restaurants = [
         category: "main course",
         created_at: "2022-03-04T19:00:00.000Z",
         updated_at: "2022-03-04T19:00:00.000Z"
-      }, {
+      }, 
+      {
         item_name: "chutney fish",
         item_description: "Penne pasta tossed in a creamy tomato sauce with a touch of vodka.",
         item_image: "https://www.foodandwine.com/thmb/fQVMR6Csaho8UG8AlX1OnDMTgdw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chutney-fish-FT-RECIPE0321-2b2d51daaba34c999f693ec58c3dfd34.jpg",
@@ -2535,6 +2632,186 @@ const restaurants = [
       }
     ]
   },
+  
+
+
+
+{
+  restaurant_name: "The vintage viner",
+  city: "bangalore",
+  address: "Unit3 lane road, Bandra east, Bangalore, 56003",
+  image: "https://elledecor.in/wp-content/uploads/2022/01/H13_Insta2_Res..36.jpg",
+  phone_number: "555-5678",
+  cuisines: ["bbq", "noodles"],
+  ambience: ["retro", "sportsbar"],
+  reviews: [
+    {
+      reviewer_name: "Alice Lee",
+      review_text: "The seafood was so fresh!",
+      rating: 5
+    },
+    {
+      reviewer_name: "Bob Chen",
+      review_text: "The service was top-notch!",
+      rating: 4
+    }
+  ],
+  menu_items: [
+    {
+      item_name: "Devil eggs",
+      item_description: "ghhhgjjjjjjjjvghhhhhhhhhhhhhhhhjj",
+      item_image: "https://preppykitchen.com/wp-content/uploads/2023/10/Deviled-Eggs-Recipe-Card.jpg",
+      item_price: 99,
+      item_stripe_price: "price_1OlBsFKoYFAYewxjw6fBX7uC", //need to change this
+      vegetarian: false,
+      spicy: true,
+      remaining: 40,
+      calorie: 150,
+      cheffSpecial: true,
+      category: "starters",
+      created_at: "2022-03-02T12:00:00.000Z",
+      updated_at: "2022-03-02T12:00:00.000Z"
+    },
+    {
+      item_name: "ribollita",
+      item_description: "Raw tuna with avocado and citrus",
+      item_image: "https://www.chefspencil.com/wp-content/uploads/Ribollita.jpg.webp",
+      item_price: 350,
+      item_stripe_price: "price_1NKH2VSJv6spOPlPYL7h7Cji",
+      vegetarian: true,
+      spicy: false,
+      allergens: ["Fish"],
+      remaining: 10,
+      calorie: 350,
+      cheffSpecial: true,
+      category: "starters"
+    },
+    {
+      item_name: "bagna cauda",
+      item_description: "Creamy risotto with lobster meat",
+      item_image: "https://www.chefspencil.com/wp-content/uploads/Bagna-cauda.jpg.webp",
+      item_price: 200,
+      item_stripe_price: "price_1NKklTSJv6spOPlP39SwvKgH",
+      vegetarian: false,
+      spicy: false,
+      allergens: ["Shellfish", "Dairy"],
+      remaining: 8,
+      calorie: 150,
+      cheffSpecial: false,
+      category: "main course"
+    },
+    {
+      item_name: "Polenta",
+      item_description: "Breaded and fried eggplant slices topped with marinara sauce and melted mozzarella cheese. Served with spaghetti marinara.",
+      item_image: "https://www.seriouseats.com/thmb/ILLeyKORbTnz3DsUKRrEoLSDJjQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__05__20150501-polenta-vicky-wasik-5-018e7507df9940f9b1d9cd0b5f67339b.jpg",
+      item_price: 300,
+      item_stripe_price: "price_1NJJWzSJv6spOPlPjEtcYLEn",
+      vegetarian: false,
+      spicy: true,
+      allergens: ["Gluten"],
+      remaining: 10,
+      calorie: 270,
+      cheffSpecial: true,
+      category: "main course",
+      created_at: "2022-03-01T18:30:00.000Z",
+      updated_at: "2022-03-01T18:30:00.000Z"
+    },
+    {
+      item_name: "pasta",
+      item_description: "hfjhbkjkjkjkklklkllk",
+      item_image: "https://www.recipetineats.com/wp-content/uploads/2014/06/Pasta1.jpg",
+      item_price: 200,
+      item_stripe_price: "price_1NJJWzSJv6spOPlPjEtcYLEn",
+      vegetarian: true,
+      spicy: false,
+      allergens: ["Gluten", "Dairy"],
+      remaining: 20,
+      calorie: 180,
+      cheffSpecial: false,
+      category: "starters",
+      created_at: "2022-03-02T12:00:00.000Z",
+      updated_at: "2022-03-02T12:00:00.000Z"
+    },
+    {
+      item_name: "sphagetti with clams and garlic",
+      item_description: "Classic Italian dessert made with layers of espresso-soaked ladyfingers and mascarpone cheese.",
+      item_image: "https://www.foodandwine.com/thmb/aBJSH_AZq5Go7VCdtk3u1MmJJfg=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/HD-201002-r-spaghetti-clams-garlic-191079f02ac24cc1aefa05f5b921273b.jpg",
+      item_price: 300,
+      item_stripe_price: "price_1NJJWzSJv6spOPlPjEtcYLEn",
+      vegetarian: false,
+      spicy: false,
+      allergens: ["Dairy"],
+      remaining: 15,
+      calorie: 280,
+      cheffSpecial: true,
+      category: "main course",
+      created_at: "2022-03-03T15:30:00.000Z",
+      updated_at: "2022-03-03T15:30:00.000Z"
+    },
+    {
+      item_name: "langoustines alla busara",
+      item_description: "Penne pasta tossed in a creamy tomato sauce with a touch of vodka.",
+      item_image: "https://www.foodandwine.com/thmb/RVKpUtXnBmURqq8Yk-ufccF9xdQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/langoustines-alla-busara-XL-RECIPE0916-14e38dd9b4ed4db7837177ea655f11ff.jpg",
+      item_price: 160,
+      item_stripe_price: "price_1NJJWzSJv6spOPlPjEtcYLEn",
+      vegetarian: true,
+      spicy: false,
+      allergens: ["Dairy"],
+      remaining: 8,
+      calorie: 150,
+      cheffSpecial: false,
+      category: "starters",
+      created_at: "2022-03-04T19:00:00.000Z",
+      updated_at: "2022-03-04T19:00:00.000Z"
+    },
+    { 
+      item_name: "maine style lobster rolls",
+      item_description: "Creamy risotto with lobster meat",
+      item_image: "https://www.simplyrecipes.com/thmb/sGLLVhhk2WcGYQHOHPpSKgUEomA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__07__New-England-Lobster-Rolls-LEAD-3b-66e6d533de5643f5b00f40aa9e9c8251.jpg",
+      item_price: 35,
+      item_stripe_price: "price_1NJJWzSJv6spOPlPjEtcYLEn",
+      vegetarian: false,
+      spicy: true,
+      allergens: ["Shellfish", "Dairy"],
+      remaining: 8,
+      calorie: 25,
+      cheffSpecial: true,
+      category: "starters"
+  },
+  {
+      item_name: "garlic prawns",
+      item_description: "Penne pasta tossed in a creamy tomato sauce with a touch of vodka.",
+      item_image: "https://www.foodandwine.com/thmb/4TZj0NWKrVhE2DNDOJOs8gpudrM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/maine-style-lobster-rolls-ft-RECIPE0718_1-1ef66855601d4248a2499945e08244b7.jpg",
+      item_price: 160,
+      item_stripe_price: "price_1NJJWzSJv6spOPlPjEtcYLEn",
+      vegetarian: false,
+      spicy: false,
+      allergens: ["Dairy"],
+      remaining: 8,
+      calorie: 100,
+      cheffSpecial: false,
+      category: "main course",
+      created_at: "2022-03-04T19:00:00.000Z",
+      updated_at: "2022-03-04T19:00:00.000Z"
+    }, 
+    {
+      item_name: "chutney fish",
+      item_description: "Penne pasta tossed in a creamy tomato sauce with a touch of vodka.",
+      item_image: "https://www.foodandwine.com/thmb/fQVMR6Csaho8UG8AlX1OnDMTgdw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chutney-fish-FT-RECIPE0321-2b2d51daaba34c999f693ec58c3dfd34.jpg",
+      item_price: 160,
+      item_stripe_price: "price_1NJJWzSJv6spOPlPjEtcYLEn",
+      vegetarian: false,
+      spicy: false,
+      allergens: ["Dairy"],
+      remaining: 8,
+      calorie: 120,
+      cheffSpecial: false,
+      category: "main course",
+      created_at: "2022-03-04T19:00:00.000Z",
+      updated_at: "2022-03-04T19:00:00.000Z"
+    }
+  ]
+},
 ]
 
 export default restaurants
