@@ -1074,8 +1074,8 @@ const restaurants = [
     address: "Unit3 lane road, Bangalore",
     image: "https://media-cdn.tripadvisor.com/media/photo-s/12/70/48/70/ruchi-village.jpg",
     phone_number: "555-5678",
-    cuisines: ["vegetarian", "ricedishes"],
-    ambience: ["romantic", "livemusic"],
+    cuisines: ["vegetarian", "ricedishes", "salads", "burgers", "bbq", "noodles", "beverage", "cheffspecials"],
+    ambience: ["romantic", "livemusic", "retro", "sportsbar", "family"],
     reviews: [
       {
         reviewer_name: "Alice Lee",
@@ -1404,8 +1404,8 @@ const restaurants = [
     address: " MG Road, Koramangala, Bangalore, 560001",
     image: "https://10619-2.s.cdn12.com/rests/original/103_508793578.jpg",
     phone_number: "555-5678",
-    cuisines: ["vegetarian", "ricedishes"],
-    ambience: ["romantic", 'livemusic'],
+    cuisines: ["vegetarian", "ricedishes", "salads", "burgers", "bbq", "noodles", "beverage", "cheffspecials"],
+    ambience: ["romantic", "livemusic", "retro", "sportsbar", "family"],
     reviews: [
       {
         reviewer_name: "Alice Lee",
@@ -1585,8 +1585,8 @@ const restaurants = [
     address: "Unit3 lane road, Bandra east, Bangalore, 56003",
     image: "https://assets.architecturaldigest.in/photos/6008333de6e1f64740188c2e/16:9/w_2560%2Cc_limit/Estella-hi-res-3-1366x768.jpg",
     phone_number: "555-5678",
-    cuisines: ["vegetarian", "ricedishes"],
-    ambience: ["romantic", "livemusic"],
+    cuisines: ["vegetarian", "ricedishes", "salads", "burgers", "bbq", "noodles", "beverage", "cheffspecials"],
+    ambience: ["romantic", "livemusic", "retro", "sportsbar", "family"],
     reviews: [
       {
         reviewer_name: "Alice Lee",
@@ -1762,8 +1762,8 @@ const restaurants = [
     address: "Brigade Road, Indiranagar, Bangalore, 560002",
     image: "https://b.zmtcdn.com/data/pictures/7/57177/4bb68abc4ac977904bed478bc1fc1fe1.jpg",
     phone_number: "555-5678",
-    cuisines: ["vegetarian", "ricedishes"],
-    ambience: ["romantic", "livemusic"],
+    cuisines: ["vegetarian", "ricedishes", "salads", "burgers", "bbq", "noodles", "beverage", "cheffspecials"],
+    ambience: ["romantic", "livemusic", "retro", "sportsbar", "family"],
     reviews: [
       {
         reviewer_name: "Alice Lee",
@@ -1938,8 +1938,8 @@ const restaurants = [
     address: "Residency Road, Jayanagar, Bangalore, 560003",
     image: "https://media-cdn.tripadvisor.com/media/photo-s/19/08/78/bc/khaleez.jpg",
     phone_number: "555-5678",
-    cuisines: ["vegetarian", "ricedishes"],
-    ambience: ["romantic", "livemusic"],
+    cuisines: ["vegetarian", "ricedishes", "salads", "burgers", "bbq", "noodles", "beverage", "cheffspecials"],
+    ambience: ["romantic", "livemusic", "retro", "sportsbar", "family"],
     reviews: [
       {
         reviewer_name: "Alice Lee",
@@ -2114,8 +2114,8 @@ const restaurants = [
     address: "Commercial Street, Malleshwaram, Bangalore, 560004",
     image: "https://content3.jdmagicbox.com/comp/hyderabad/k1/040pxx40.xx40.120311201825.x8k1/catalogue/barbeque-nation-banjara-hills-hyderabad-north-indian-restaurants-b436q3q2yc.jpg",
     phone_number: "555-5678",
-    cuisines: ["vegetarian", "ricedishes"],
-    ambience: ["romantic", "livemusic"],
+    cuisines: ["vegetarian", "ricedishes", "salads", "burgers", "bbq", "noodles", "beverage", "cheffspecials"],
+    ambience: ["romantic", "livemusic", "retro", "sportsbar", "family"],
     reviews: [
       {
         reviewer_name: "Alice Lee",
@@ -2289,8 +2289,8 @@ const restaurants = [
     address: " Cunningham Road, Rajajinagar, Bangalore, 560005",
     image: "https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/restaurant%2F688330%2Frestaurant020230503064724.jpg",
     phone_number: "555-5678",
-    cuisines: ["vegetarian", "ricedishes"],
-    ambience: ["romantic", "livemusic"],
+    cuisines: ["vegetarian", "ricedishes", "salads", "burgers", "bbq", "noodles", "beverage", "cheffspecials"],
+    ambience: ["romantic", "livemusic", "retro", "sportsbar", "family"],
     reviews: [
       {
         reviewer_name: "Alice Lee",
@@ -2464,8 +2464,8 @@ const restaurants = [
     address: "Richmond Circle, Basavanagudi, Bangalore, 560006",
     image: "https://img.traveltriangle.com/blog/wp-content/uploads/2017/10/Toit1.jpg",
     phone_number: "555-5678",
-    cuisines: ["vegetarian", "ricedishes"],
-    ambience: ["romantic", "livemusic"],
+    cuisines: ["vegetarian", "ricedishes", "salads", "burgers", "bbq", "noodles", "beverage", "cheffspecials"],
+    ambience: ["romantic", "livemusic", "retro", "sportsbar", "family"],
     reviews: [
       {
         reviewer_name: "Alice Lee",
@@ -2642,8 +2642,8 @@ const restaurants = [
   address: "Unit3 lane road, Bandra east, Bangalore, 56003",
   image: "https://elledecor.in/wp-content/uploads/2022/01/H13_Insta2_Res..36.jpg",
   phone_number: "555-5678",
-  cuisines: ["bbq", "noodles"],
-  ambience: ["retro", "sportsbar"],
+  cuisines: ["vegetarian", "ricedishes", "salads", "burgers", "bbq", "noodles", "beverage", "cheffspecials"],
+  ambience: ["romantic", "livemusic", "retro", "sportsbar", "family"],
   reviews: [
     {
       reviewer_name: "Alice Lee",

@@ -39,85 +39,100 @@ app.get('/api/temp', (req, res) => {
 })   
 
 app.get('/api/payment', asyncHandler(async (req, res) => {
-    try {
-        const restaurantId = req.query.restaurantId;
-        const tableNumber = req.query.tableNumber;
-    
-        const restaurant = await Restaurant.findById(restaurantId);
+  try {
+      const restaurantId = req.query.restaurantId;
+      let tableNumber = parseInt(req.query.tableNumber);
 
-        // console.log(restaurant)
-    
-        if (!restaurant) {
+      if (isNaN(tableNumber)) {
+        console.log('seems im not a number')
+        tableNumber = req.query.tableNumber
+      }
+  
+      const restaurant = await Restaurant.findById(restaurantId);
+  
+      if (!restaurant) {
           return res.status(404).json({ error: 'Restaurant not found' });
-        }
-    
-        const orders = await Order.find({ restaurant_id: restaurantId, table_number: tableNumber, status: 'Delivered' });
-        console.log('helloo')
-        console.log(orders)
-        // Create an object to store the menu items and their quantities
-        const menuItemsMap = new Map();
-    
-        // Iterate over the orders and update the menuItemsMap with the quantities
-        orders.forEach(order => {
-          order.menu_items.forEach(menuItem => {
-            const { item_id, item_name, item_price, quantity, price } = menuItem;
-            console.log(price)
-    
-            // If the menu item is already in the map, increase the quantity
-            if (menuItemsMap.has(item_id.toString())) {
-              const existingMenuItem = menuItemsMap.get(item_id.toString());
-              existingMenuItem.quantity += quantity;
-            } else {
-              // Otherwise, add the menu item to the map
-              menuItemsMap.set(item_id.toString(), {
-                item_id,
-                item_name,
-                item_price,
-                quantity,
-                price
-              });
-            }
-          });
-        });
-    
-        // Convert the map values to an array
-        const menuItems = Array.from(menuItemsMap.values());
+      }
+  
+      const orders = await Order.find({ restaurant_id: restaurantId, table_number: tableNumber, status: 'Delivered' });
 
-        console.log('hi')
-        // console.log(menuItems)
+      // console.log(`orders: ${orders}`)
+      
+      if (orders.length <= 0) {
+          return res.status(400).json({error: 'Awaiting cheff to mark the order as delivered'})
+      }
     
-        const tempid = "price_1NJJWzSJv6spOPlPjEtcYLEn"
+      // Create an object to store the menu items and their quantities
+      const menuItemsMap = new Map();
+  
+      // Iterate over the orders and update the menuItemsMap with the quantities
+      orders.forEach(order => {
+          order.menu_items.forEach(menuItem => {
+              const { item_id, item_name, item_price, quantity, price } = menuItem;
+  
+              // If the menu item is already in the map, increase the quantity
+              if (menuItemsMap.has(item_id.toString())) {
+                  const existingMenuItem = menuItemsMap.get(item_id.toString());
+                  existingMenuItem.quantity += quantity;
+              } else {
+                  // Otherwise, add the menu item to the map
+                  menuItemsMap.set(item_id.toString(), {
+                      item_id,
+                      item_name,
+                      item_price,
+                      quantity,
+                      price
+                  });
+              }
+          });
+      });
+  
+      // Convert the map values to an array
+      const menuItems = Array.from(menuItemsMap.values());
+
+      console.log(menuItems)
+  
+      // Map the menu items to match Stripe's expected format
+      const menuItemsNew = menuItems.map(item => {
+        const unitAmount = item.item_price * 100; // Convert item price to cents
+        return { 
+            price_data: { 
+                currency: 'inr', 
+                product_data: { 
+                    name: item.item_name 
+                }, 
+                unit_amount: unitAmount 
+            }, 
+            quantity: item.quantity 
+        };
+    });
     
-        const menuItemsNew = menuItems.map(item => {
-            return { price: item.price, quantity: item.quantity };
-        });
-    
-        console.log(menuItemsNew)
-    
-        const session = await stripe.checkout.sessions.create({
+
+      // console.table(menuItemsNew);
+  
+      const session = await stripe.checkout.sessions.create({
           line_items: menuItemsNew,
           mode: 'payment',
+          payment_method_types: ['card'],
           success_url: "http://localhost:3000/success",
           cancel_url: "http://localhost:3000/cancel"
       });
-
+  
+      // Update the status of delivered orders to 'Completed'
       await Order.updateMany({ restaurant_id: restaurantId, table_number: tableNumber, status: 'Delivered' }, { $set: { status: 'Completed' } });
-    
+  
       res.send(JSON.stringify({
           url: session.url
       }));
-    
-        // const menuItemsNew = menuItems.flatMap(order => {
-        //   return order.menu_items.map(menuItem => {
-        //     return { id: menuItem.item_id, quantity: menuItem.quantity };
-        //   });
-        // });
-    
-        // res.json(menuItemsNew);
-      } catch (error) {
-        res.status(500).json({ error: error });
-      }
-}))
+  } catch (error) {
+      console.error("Error processing payment:", error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+}));
+
+app.use(notFound)
+app.use(errorHandler)
+
 
 console.log(`the port is ${process.env.PORT}`)
 

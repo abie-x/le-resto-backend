@@ -43,9 +43,9 @@ const importData = async () => {
 const destroyData = async () => {
   try {
     // await Restaurant.deleteMany()
-    // await Order.deleteMany()
+    await Order.deleteMany()
     // await User.deleteMany()
-    await Cook.deleteMany()
+    // await Cook.deleteMany()
     // await Tip.deleteMany()
 
     console.log('Data Destroyed!'.red.inverse)
